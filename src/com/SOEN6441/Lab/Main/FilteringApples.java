@@ -95,12 +95,17 @@ public class FilteringApples{
         public void setColor(String color) {
             this.color = color;
         }
-
+        
         public String toString() {
             return "Apple{" +
                    "color='" + color + '\'' +
                    ", weight=" + weight +
                    '}';
+        }
+        
+        public boolean equals(Object obj) {
+        	Apple apple = (Apple) obj;
+        	return apple.weight == this.weight && apple.color.equals(this.color);
         }
     }
 
