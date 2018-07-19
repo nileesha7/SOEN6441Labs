@@ -1,6 +1,8 @@
 package com.SOEN6441.Lab3;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 public class ExecuteAround {
 
 	public static void main(String ...args) throws IOException{
@@ -17,8 +19,18 @@ public class ExecuteAround {
 		String twoLines = processFile((BufferedReader b) -> b.readLine() + b.readLine());
 		System.out.println(twoLines);
 
-		//String numLines = processFile( (BufferedReader b) );
-		//System.out.println(numLines);
+		
+		String numLines = processFile ((BufferedReader b) -> {
+					      int count = 0;
+						  while (b.readLine()!=null) {
+						     count++;
+						  }
+						  return Integer.toString(count);
+		});
+		
+		System.out.println(numLines);
+
+
 	
 	}
 

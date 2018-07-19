@@ -27,6 +27,7 @@ public class Lambdas {
 		
 		ThreadLocal <String> dateFormatter = ThreadLocal.withInitial(()->new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
 		System.out.println(dateFormatter.get());
+		
 
 	}
 
