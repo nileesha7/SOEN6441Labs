@@ -17,7 +17,7 @@ public class PuttingIntoPractice {
         Trader alan = new Trader("Alan","Cambridge");
         Trader brian = new Trader("Brian","Cambridge");
         Trader nileesha = new Trader("niLEeSha","reallylongcityname");
-        Trader sajani = new Trader("sajani","montreal");
+        Trader sajani = new Trader("sajani","REALLYLONGCITYNAME");
         Trader fernando = new Trader("FERNANDO","Cambridge");
 
 		List<Transaction> transactions = Arrays.asList(
@@ -101,7 +101,13 @@ public class PuttingIntoPractice {
 		System.out.println("Find the city String with the largest number of lowercase letters from all the cities in the transaction list.");
 		
 		//Find the city String with the largest number of lowercase letters from all the cities in the transaction list. Experiment with returning an Optional<String> to account for the case of an empty input list.
-		
+		Optional <String> city = transactions.stream()
+					  			.map(t->t.getTrader().getCity())
+					  			.reduce((c1, c2)->
+					  					c1.chars().filter(c->c>=97 && c<=122).count() >
+					  					c2.chars().filter(c->c>=97 && c<=122).count()
+					  					? c1:c2);
+		System.out.println(city.get());
 			 	
 								 
 	}

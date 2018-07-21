@@ -33,10 +33,6 @@ public class Mapping {
 
 		System.out.println("-----");
 		
-		
-
-		
-		
 		//Extend the previous example to return only pairs whose sum is divisible by 3: For example, (2, 4) and (3, 3) are valid.
 		System.out.println("1) Pairs whose sum is divisible by 3");
 		List <Integer[]> pairsDivisibleBy3 = list1.stream()
