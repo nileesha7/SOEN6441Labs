@@ -19,7 +19,8 @@ public class Mapping {
 
 		System.out.println("-----");
 
-
+		
+		
 		//Given two lists of numbers, return all pairs of numbers
 		System.out.println("1) Pairs");
 		List <Integer> list1 = Arrays.asList(1,2,3);
@@ -31,6 +32,10 @@ public class Mapping {
 		pairs.forEach(pair-> System.out.println("["+pair[0]+", "+pair[1]+"]"));
 
 		System.out.println("-----");
+		
+		
+
+		
 		
 		//Extend the previous example to return only pairs whose sum is divisible by 3: For example, (2, 4) and (3, 3) are valid.
 		System.out.println("1) Pairs whose sum is divisible by 3");

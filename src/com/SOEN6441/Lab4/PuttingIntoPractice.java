@@ -16,17 +16,23 @@ public class PuttingIntoPractice {
         Trader mario = new Trader("Mario","Milan");
         Trader alan = new Trader("Alan","Cambridge");
         Trader brian = new Trader("Brian","Cambridge");
-		
+        Trader nileesha = new Trader("niLEeSha","reallylongcityname");
+        Trader sajani = new Trader("sajani","montreal");
+        Trader fernando = new Trader("FERNANDO","Cambridge");
+
 		List<Transaction> transactions = Arrays.asList(
             new Transaction(brian, 2011, 300), 
             new Transaction(raoul, 2012, 1000),
             new Transaction(raoul, 2011, 400),
             new Transaction(mario, 2012, 710),	
             new Transaction(mario, 2012, 700),
-            new Transaction(alan, 2012, 950)
+            new Transaction(alan, 2012, 950),
+            new Transaction(nileesha, 2012, 950),
+            new Transaction(sajani, 2012, 950),
+            new Transaction(fernando, 2012, 950)
         );	
 		
-		List <Trader> traders = Arrays.asList(raoul, mario, alan, brian);
+		List <Trader> traders = Arrays.asList(raoul, mario, alan, brian, nileesha, sajani, fernando);
 		
 		//Find all transactions in the year 2011 and sort them by value (small to high).
 		List <Transaction> transactionsIn2011 = transactions.stream()
@@ -82,12 +88,21 @@ public class PuttingIntoPractice {
 		System.out.println(smallest);
 		
 		//For each trader, return the number of lowercase letters in the name (hint: look at the chars method on String)
-					traders.stream()
-				    .map(trader -> trader.getName())
-				    .distinct()
-				    .map(name -> name.chars().count())
-				    .forEach(System.out::println);
+		List<Integer> numOfLowercase = traders.stream()
+				  						.map(Trader::getName)
+				  						.map(name -> name.chars()
+				  									.filter(c->c>=97 && c<=122) //.count() also works
+				  									.map(val->1)
+				  									.reduce(0, Integer::sum)
+				  								)
+				  						.collect(toList());
+		numOfLowercase.stream().forEach(System.out::println);
+		
+		System.out.println("Find the city String with the largest number of lowercase letters from all the cities in the transaction list.");
 		
 		//Find the city String with the largest number of lowercase letters from all the cities in the transaction list. Experiment with returning an Optional<String> to account for the case of an empty input list.
+		
+			 	
+								 
 	}
 }
